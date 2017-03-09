@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Autocompletar Jquery, MySQL, PHP con función autocomplete, santorcuato76@gmail.com</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <script type="text/javascript">
+$(function() {
+            $("#nombre").autocomplete({
+                source: "datos.php",
+                minLength: 2,
+                select: function(event, ui) {
+					event.preventDefault();
+                    $('#nombre').val(ui.item.nombre);
+					$('#rut').val(ui.item.rut);
+					$('#direccion').val(ui.item.direccion);
+          	$('#fono').val(ui.item.fono);
+					$('#nom').val(ui.item.nom);
+
+			     }
+            });
+		});
+</script>
+</head>
+<body>
+
+<div class="ui-widget">
+  Nombre:  <input id="nombre" placeholder="vale">
+  Rut: <input id="rut" readonly>
+  Dirección: <input id="direccion" readonly>
+  Telefono:  <input id="fono" readonly>
+
+  <input type="hidden" id="nom">
+  
+</div>
+</body>
+</html>
